@@ -51,7 +51,9 @@
                                 <td>{{ $build->released_version }}</td>
                                 <td>{{ $build->created_at }}</td>
                                 <td>
-                                    <a href="#" class="btn btn-primary"
+                                    <a
+                                        href=" {{asset(Storage::url($build->file_path ))}}"
+                                        class="btn btn-primary"
                                         >Download</a
                                     >
                                 </td>

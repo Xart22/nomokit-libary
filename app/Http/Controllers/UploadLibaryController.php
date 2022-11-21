@@ -17,7 +17,7 @@ class UploadLibaryController extends Controller
     {
         $libaries = Libary::all();
         foreach ($libaries as $libary) {
-            $libary->file_path = Storage::url($libary->file_path);
+            $libary->file_path = asset(Storage::url($libary->file_path));
             $index_time = strpos($libary->name, '_');
             $libary->name = substr($libary->name, $index_time + 1);
         }

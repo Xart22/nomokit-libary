@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BuildLibary;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -25,6 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $activeBuilds = BuildLibary::where('is_active', 1)->first();
+
         return view('home', [
             'builds' => BuildLibary::all(),
             'activeBuilds' => $activeBuilds

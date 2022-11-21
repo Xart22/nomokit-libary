@@ -58,10 +58,9 @@
                             <tr>
                                 <td>{{ $libary->name }}</td>
                                 <td>
-                                    {{ $libary->version ?? 'Not Yet Released' }}
+                                    {{ $libary->released_version ?? 'Not Yet Released' }}
                                 </td>
                                 <td>
-                                    {{$libary->file_path}}
                                     <a
                                         href="{{$libary->file_path}}"
                                         class="btn btn-primary"
