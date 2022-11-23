@@ -124,7 +124,7 @@
                                     class="form-check-label"
                                     for="{{$libary->name}}"
                                 >
-                                    {{ $libary->name }}
+                                    {{ $libary->real_name }}
                                 </label>
                             </div>
                             @endforeach

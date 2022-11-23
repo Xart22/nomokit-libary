@@ -27,7 +27,7 @@ class BuildReleaseController extends Controller
         foreach ($libaries as $libary) {
             $libary->file_path = Storage::url($libary->file_path);
             $index_time = strpos($libary->name, '_');
-            $libary->name = substr($libary->name, $index_time + 1);
+            $libary->real_name = substr($libary->name, $index_time + 1);
         }
         $latestBuild = BuildLibary::where('is_active', 1)->first();
         return view('build-release.index', compact('libaries', 'latestBuild'));
@@ -60,7 +60,7 @@ class BuildReleaseController extends Controller
         }
         $selected = [];
         foreach ($request->libary as $libary) {
-            $getLibaries = Libary::where('name', 'LIKE', '%' . $libary . '%')->first();
+            $getLibaries = Libary::where('name',  $libary)->first();
             if ($getLibaries) {
                 array_push($selected, $getLibaries);
             }
