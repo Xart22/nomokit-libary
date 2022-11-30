@@ -18,7 +18,11 @@
             <div class="alert alert-danger" role="alert">
                 <h4 class="alert-heading">{{ $errors->first('error') }}</h4>
             </div>
-            @endif @endif
+            @endif @endif @if(Session::has('success'))
+            <div class="alert alert-success" role="alert">
+                <h4 class="alert-heading">Delete success</h4>
+            </div>
+            @endif
             <div class="card">
                 <div class="card-header">
                     <b> Upload Libary</b>
@@ -65,6 +69,11 @@
                                         href="{{$libary->file_path}}"
                                         class="btn btn-primary"
                                         >Download</a
+                                    >
+                                    <a
+                                        href="{{route('delete.libary',$libary->id)}}"
+                                        class="btn btn-danger"
+                                        >Delete</a
                                     >
                                 </td>
                             </tr>

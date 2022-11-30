@@ -26,4 +26,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('build-release', BuildReleaseController::class);
     Route::get('/upload', [UploadLibaryController::class, 'index'])->name('upload');
     Route::post('/upload', [UploadLibaryController::class, 'upload'])->name('uploadFile');
+    Route::get('/delete-lib/{id}', [UploadLibaryController::class, 'destroy'])->name('delete.libary');
 });

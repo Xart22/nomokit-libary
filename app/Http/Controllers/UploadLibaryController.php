@@ -101,6 +101,9 @@ class UploadLibaryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $libary = Libary::find($id);
+        Storage::delete($libary->file_path);
+        $libary->delete();
+        return redirect()->route('upload')->with('success', 'Delete success');
     }
 }

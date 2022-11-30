@@ -95,7 +95,6 @@ class BuildReleaseController extends Controller
             return redirect()->route('home');
         } catch (\Throwable $th) {
             DB::rollBack();
-            dd($th);
             return back()->with('error', 'Something went wrong');
         }
     }
